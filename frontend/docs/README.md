@@ -324,7 +324,7 @@ Khi chạy lần đầu, database được tạo và chèn sẵn:
 **Nhân viên (5):**
 | Tên | Email | Chức vụ |
 |---|---|---|
-| Nguyễn Văn An | an.nguyen@company.com | Trưởng phòng Marketing |
+| Nguyễn Minh Tuấn | tuan.nguyen@company.com | Trưởng phòng Marketing |
 | Trần Thị Bình | binh.tran@company.com | Chuyên viên Content |
 | Lê Hoàng Cường | cuong.le@company.com | Chuyên viên SEO |
 | Phạm Minh Dung | dung.pham@company.com | Designer |

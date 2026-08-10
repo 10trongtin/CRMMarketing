@@ -58,7 +58,7 @@ function seed() {
      VALUES (?, ?, ?, ?, ?)`
   );
   const employees = [
-    ['Nguyễn Văn An', 'an.nguyen@company.com', '0901234567', 'Trưởng phòng Marketing'],
+    ['Nguyễn Minh Tuấn', 'tuan.nguyen@company.com', '0901234567', 'Trưởng phòng Marketing'],
     ['Trần Thị Bình', 'binh.tran@company.com', '0901234568', 'Chuyên viên Content'],
     ['Lê Hoàng Cường', 'cuong.le@company.com', '0901234569', 'Chuyên viên SEO'],
     ['Phạm Minh Dung', 'dung.pham@company.com', '0901234570', 'Designer'],

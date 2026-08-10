@@ -142,7 +142,7 @@ Cơ sở dữ liệu SQLite (`crm_marketing.db`) sử dụng các bảng có qua
 Khi khởi chạy Backend lần đầu, hệ thống tự động chèn dữ liệu khởi tạo:
 
 1. **Nhân viên (Employees):**
-   - `Nguyễn Văn An` (`an.nguyen@company.com`) — *Trưởng phòng Marketing*
+   - `Nguyễn Minh Tuấn` (`tuan.nguyen@company.com`) — *Trưởng phòng Marketing*
    - `Trần Thị Bình` (`binh.tran@company.com`) — *Chuyên viên Content*
    - `Lê Hoàng Cường` (`cuong.le@company.com`) — *Chuyên viên SEO*
    - `Phạm Minh Dung` (`dung.pham@company.com`) — *Designer*
@@ -165,7 +165,7 @@ Tất cả các Endpoint đều hoạt động dưới đường dẫn gốc: `h
 
 | Method | Endpoint | Request Body | Mô tả | Response |
 |---|---|---|---|---|
-| `POST` | `/api/auth/login` | `{ "email": "an.nguyen@company.com" }` | Đăng nhập bằng email nhân viên | Trả về thông tin `Employee` object |
+| `POST` | `/api/auth/login` | `{ "email": "tuan.nguyen@company.com" }` | Đăng nhập bằng email nhân viên | Trả về thông tin `Employee` object |
 
 ### 4.2 Quản lý Nhân viên (Employees)
 
@@ -202,7 +202,7 @@ Tất cả các Endpoint đều hoạt động dưới đường dẫn gốc: `h
 | Method | Endpoint | Query Parameters | Mô tả | Response Format |
 |---|---|---|---|---|
 | `GET` | `/api/stats/dashboard` | `?employeeId=1` (Optional) | Thống kê số lượng task theo trạng thái + số task quá hạn | `{ total, todo, in_progress, review, done, overdue }` |
-| `GET` | `/api/stats/employees-completion` | - | Phân tích % hoàn thành công việc theo từng nhân viên | `{ "Nguyễn Văn An": 80.0, "Trần Thị Bình": 50.0, ... }` |
+| `GET` | `/api/stats/employees-completion` | - | Phân tích % hoàn thành công việc theo từng nhân viên | `{ "Nguyễn Minh Tuấn": 80.0, "Trần Thị Bình": 50.0, ... }` |
 | `GET` | `/api/stats/priority` | - | Phân bố số lượng công việc theo độ ưu tiên | `{ "low": 1, "medium": 3, "high": 2, "urgent": 1 }` |
 
 ---
@@ -303,7 +303,7 @@ Có thể sử dụng bất kỳ email nhân viên mẫu nào dưới đây đ�
 
 | Họ và Tên | Email Đăng nhập | Chức vụ |
 |---|---|---|
-| Nguyễn Văn An | `an.nguyen@company.com` | Trưởng phòng Marketing |
+| Nguyễn Minh Tuấn | `tuan.nguyen@company.com` | Trưởng phòng Marketing |
 | Trần Thị Bình | `binh.tran@company.com` | Chuyên viên Content |
 | Lê Hoàng Cường | `cuong.le@company.com` | Chuyên viên SEO |
 | Phạm Minh Dung | `dung.pham@company.com` | Designer |
