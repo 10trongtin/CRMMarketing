@@ -4,14 +4,6 @@
 
 ---
 
-## 📌 Thông tin Đề tài
-
-- **Tên đề tài:** Marketing CRM (Ứng dụng Quản lý Tiến độ Công việc Phòng Marketing)
-- **Người phụ trách đề tài:** **Nguyễn Trọng Tín** (1 người phụ trách duy nhất — Đảm nhận 100% phát triển Backend & Frontend)
-- **Nền tảng hỗ trợ:** Android, iOS, Windows, macOS, Linux, Web
-
----
-
 ## 🏗 1. Kiến trúc Hệ thống & Công nghệ
 
 Hệ thống được thiết kế theo mô hình **Client - Server (RESTful API)** tách biệt hoàn toàn giữa ứng dụng di động/desktop (Frontend) và máy chủ dịch vụ dữ liệu (Backend).
@@ -45,6 +37,7 @@ Hệ thống được thiết kế theo mô hình **Client - Server (RESTful API
 | **Quản lý trạng thái** | `provider` (^6.1.1) | State management theo mô hình `ChangeNotifier` |
 | **Giao tiếp API** | `http` (^1.2.0) | Gửi và nhận dữ liệu JSON chuẩn RESTful |
 | **Định dạng & Tiện ích** | `intl`, `google_fonts`, `flutter_slidable` | Format ngày tháng tiếng Việt, font Outfit, vuốt thao tác task |
+| **Nền tảng hỗ trợ** | Android, iOS, Windows, macOS, Linux, Web | Đa nền tảng hỗ trợ responsive layout |
 
 ---
 
@@ -52,7 +45,7 @@ Hệ thống được thiết kế theo mô hình **Client - Server (RESTful API
 
 ```
 CRMMarketing/
-├── README.md                      → Tài liệu hướng dẫn chính của hệ thống
+├── README.md                      → Tài liệu mô tả hệ thống chính
 ├── backend/                       → Máy chủ Backend (Node.js REST API)
 │   ├── package.json               → Cấu hình dependencies & scripts Node.js
 │   ├── server.js                  → Entry point khởi chạy Express Server (Port 3000)
@@ -146,10 +139,10 @@ Cơ sở dữ liệu SQLite (`crm_marketing.db`) sử dụng các bảng có qua
 
 ### 👤 Dữ liệu khởi tạo mẫu (Seed Data)
 
-Khi khởi chạy Backend lần đầu, hệ thống sẽ tự động chèn dữ liệu mẫu:
+Khi khởi chạy Backend lần đầu, hệ thống tự động chèn dữ liệu khởi tạo:
 
 1. **Nhân viên (Employees):**
-   - `Nguyễn Trọng Tín` (`tin.nguyen@company.com`) — *Trưởng phòng Marketing (Người phụ trách chính)*
+   - `Nguyễn Văn An` (`an.nguyen@company.com`) — *Trưởng phòng Marketing*
    - `Trần Thị Bình` (`binh.tran@company.com`) — *Chuyên viên Content*
    - `Lê Hoàng Cường` (`cuong.le@company.com`) — *Chuyên viên SEO*
    - `Phạm Minh Dung` (`dung.pham@company.com`) — *Designer*
@@ -172,7 +165,7 @@ Tất cả các Endpoint đều hoạt động dưới đường dẫn gốc: `h
 
 | Method | Endpoint | Request Body | Mô tả | Response |
 |---|---|---|---|---|
-| `POST` | `/api/auth/login` | `{ "email": "tin.nguyen@company.com" }` | Đăng nhập bằng email nhân viên | Trả về thông tin `Employee` object |
+| `POST` | `/api/auth/login` | `{ "email": "an.nguyen@company.com" }` | Đăng nhập bằng email nhân viên | Trả về thông tin `Employee` object |
 
 ### 4.2 Quản lý Nhân viên (Employees)
 
@@ -209,48 +202,44 @@ Tất cả các Endpoint đều hoạt động dưới đường dẫn gốc: `h
 | Method | Endpoint | Query Parameters | Mô tả | Response Format |
 |---|---|---|---|---|
 | `GET` | `/api/stats/dashboard` | `?employeeId=1` (Optional) | Thống kê số lượng task theo trạng thái + số task quá hạn | `{ total, todo, in_progress, review, done, overdue }` |
-| `GET` | `/api/stats/employees-completion` | - | Phân tích % hoàn thành công việc theo từng nhân viên | `{ "Nguyễn Trọng Tín": 80.0, "Trần Thị Bình": 50.0, ... }` |
+| `GET` | `/api/stats/employees-completion` | - | Phân tích % hoàn thành công việc theo từng nhân viên | `{ "Nguyễn Văn An": 80.0, "Trần Thị Bình": 50.0, ... }` |
 | `GET` | `/api/stats/priority` | - | Phân bố số lượng công việc theo độ ưu tiên | `{ "low": 1, "medium": 3, "high": 2, "urgent": 1 }` |
 
 ---
 
-## 🎯 5. Chi tiết Phân chia Phạm vi & Chức năng Mô-đun
+## 🎯 5. Phân chia & Mô tả Các Mô-đun Chức năng
 
-Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** đảm nhận toàn bộ từ thiết kế cơ sở dữ liệu, viết API Backend cho tới phát triển giao diện & logic trên Frontend.
+Hệ thống bao gồm 4 mô-đun chức năng chính tương ứng với 4 tab điều hướng giao diện:
 
-### 👤 Mô-đun 1: Dashboard & Xác thực (Auth + Overview)
-- **Người thực hiện:** **Nguyễn Trọng Tín**
-- **File phụ trách:** `lib/screens/login/login_screen.dart`, `lib/screens/dashboard/dashboard_screen.dart`, `lib/providers/auth_provider.dart`, `lib/services/auth_service.dart`, `lib/screens/main_shell.dart`.
+### 🧩 Mô-đun 1: Dashboard & Xác thực (Auth + Overview)
+- **Cấu trúc File:** `lib/screens/login/login_screen.dart`, `lib/screens/dashboard/dashboard_screen.dart`, `lib/providers/auth_provider.dart`, `lib/services/auth_service.dart`, `lib/screens/main_shell.dart`.
 - **Chức năng:**
-  - Màn hình đăng nhập xác thực nhanh theo email nhân viên mẫu.
+  - Màn hình đăng nhập xác thực theo email nhân viên.
   - Khung điều hướng Bottom Navigation 4 tab chuyển đổi mượt mà.
-  - Dashboard hiển thị các thẻ thống kê tổng quan (Tổng số task, Cần làm, Đang làm, Kiểm tra, Hoàn thành, Quá hạn) và danh sách task mới cập nhật.
+  - Dashboard hiển thị các thẻ thống kê tổng quan (Tổng số task, Cần làm, Đang làm, Kiểm tra, Hoàn thành, Quá hạn) và danh sách task gần đây.
 
-### 👤 Mô-đun 2: Quản lý Công việc (Task Management)
-- **Người thực hiện:** **Nguyễn Trọng Tín**
-- **File phụ trách:** `lib/screens/tasks/task_list_screen.dart`, `lib/screens/tasks/task_detail_screen.dart`, `lib/screens/tasks/task_form_screen.dart`, `lib/widgets/task_card.dart`, `lib/widgets/status_badge.dart`, `lib/widgets/priority_badge.dart`.
+### 📋 Mô-đun 2: Quản lý Công việc (Task Management)
+- **Cấu trúc File:** `lib/screens/tasks/task_list_screen.dart`, `lib/screens/tasks/task_detail_screen.dart`, `lib/screens/tasks/task_form_screen.dart`, `lib/widgets/task_card.dart`, `lib/widgets/status_badge.dart`, `lib/widgets/priority_badge.dart`.
 - **Chức năng:**
   - Danh sách công việc thông minh: Lọc nhanh theo Tab trạng thái (`Tất cả`, `Cần làm`, `Đang làm`, `Kiểm tra`, `Xong`), tìm kiếm theo từ khóa, lọc theo người thực hiện.
   - Màn hình chi tiết công việc: Hiển thị dòng thời gian, thời hạn (Due date), độ ưu tiên và quy trình 4 bước chuyển trạng thái (`todo` ➔ `in_progress` ➔ `review` ➔ `done`).
   - Màn hình form Thêm / Sửa công việc: Chọn dự án, người thực hiện, mức ưu tiên, ngày bắt đầu & ngày hết hạn.
   - Thao tác xóa task với hộp thoại xác nhận an toàn.
 
-### 👤 Mô-đun 3: Thống kê & Báo cáo (Statistics & Analytics)
-- **Người thực hiện:** **Nguyễn Trọng Tín**
-- **File phụ trách:** `lib/screens/statistics/statistics_screen.dart`, `lib/widgets/stats_card.dart`.
+### 📊 Mô-đun 3: Thống kê & Báo cáo (Statistics & Analytics)
+- **Cấu trúc File:** `lib/screens/statistics/statistics_screen.dart`, `lib/widgets/stats_card.dart`.
 - **Chức năng:**
   - Biểu đồ tiến độ tỷ lệ hoàn thành công việc tổng thể của toàn bộ phòng Marketing.
   - Biểu đồ phân bố độ ưu tiên của công việc dạng thanh phần trăm (Thấp, Trung bình, Cao, Gấp).
   - Bảng đo lường hiệu suất làm việc (% công việc đã hoàn thành) của từng nhân viên.
 
-### 👤 Mô-đun 4: Cá nhân & Tầng dịch vụ (Profile & Service Infrastructure)
-- **Người thực hiện:** **Nguyễn Trọng Tín**
-- **File phụ trách:** `lib/screens/profile/profile_screen.dart`, `lib/services/api_service.dart`, `lib/models/*`, `lib/providers/task_provider.dart`, `lib/utils/*`.
+### ⚙️ Mô-đun 4: Cá nhân & Tầng dịch vụ (Profile & Service Infrastructure)
+- **Cấu trúc File:** `lib/screens/profile/profile_screen.dart`, `lib/services/api_service.dart`, `lib/models/*`, `lib/providers/task_provider.dart`, `lib/utils/*`.
 - **Chức năng:**
   - Màn hình Profile cá nhân: Hiển thị avatar đại diện (Initials), tên, email, chức vụ, sđt và thống kê nhanh số task của cá nhân.
   - Xử lý Đăng xuất và xóa session đăng nhập.
-  - Tầng `ApiService`: Đóng gói toàn bộ các hàm gọi HTTP REST API an toàn với cơ chế bắt lỗi timeout/error response.
-  - Tầng `TaskProvider`: Quản lý state toàn cục cho danh sách task, tự động đồng bộ dữ liệu sau khi thêm/sửa/xóa task.
+  - Tầng `ApiService`: Đóng gói toàn bộ các hàm gọi HTTP REST API an toàn.
+  - Tầng `TaskProvider`: Quản lý state toàn cục cho danh sách task, tự động đồng bộ dữ liệu sau khi chỉnh sửa.
 
 ---
 
@@ -259,7 +248,7 @@ Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** đ�
 ### 📋 Yêu cầu môi trường
 1. **Node.js**: Phiên bản `>= 22.5.0` (để sử dụng module native `node:sqlite`).
 2. **Flutter SDK**: Phiên bản `>= 3.0.0`.
-3. **Thiết bị chạy**: Máy mô phỏng (Emulator/Simulator), trình duyệt Web hoặc thiết bị thật kết nối cùng mạng WiFi/LAN.
+3. **Thiết bị chạy**: Trình giả lập (Emulator/Simulator), Trình duyệt Web hoặc thiết bị thật kết nối chung mạng LAN.
 
 ---
 
@@ -276,7 +265,7 @@ npm install
 npm start
 ```
 
-- Backend sẽ khởi tạo cơ sở dữ liệu SQLite `crm_marketing.db` và nạp sẵn dữ liệu mẫu.
+- Backend sẽ tự động tạo cơ sở dữ liệu SQLite `crm_marketing.db` và nạp dữ liệu mẫu.
 - API bắt đầu lắng nghe tại: `http://localhost:3000/api` (hoặc `http://0.0.0.0:3000/api`).
 
 ---
@@ -310,20 +299,12 @@ flutter run
 
 ## 🔑 7. Tài khoản Đăng nhập Mẫu để Kiểm thử
 
-Bạn có thể sử dụng email của người phụ trách chính hoặc bất kỳ nhân viên mẫu nào bên dưới để đăng nhập vào ứng dụng (mật khẩu có thể nhập bất kỳ):
+Có thể sử dụng bất kỳ email nhân viên mẫu nào dưới đây để đăng nhập kiểm thử hệ thống (mật khẩu không kiểm tra):
 
 | Họ và Tên | Email Đăng nhập | Chức vụ |
 |---|---|---|
-| **Nguyễn Trọng Tín** *(Chính)* | `tin.nguyen@company.com` | **Trưởng phòng Marketing (Người phụ trách)** |
+| Nguyễn Văn An | `an.nguyen@company.com` | Trưởng phòng Marketing |
 | Trần Thị Bình | `binh.tran@company.com` | Chuyên viên Content |
 | Lê Hoàng Cường | `cuong.le@company.com` | Chuyên viên SEO |
 | Phạm Minh Dung | `dung.pham@company.com` | Designer |
 | Hoàng Thị Em | `em.hoang@company.com` | Chuyên viên Social Media |
-
----
-
-## 📝 8. Giấy phép & Tác quyền
-
-- **Đồ án / Đề tài:** Marketing CRM
-- **Tác giả & Người phụ trách:** **Nguyễn Trọng Tín**
-- **Bản quyền:** © 2026 Nguyễn Trọng Tín. All rights reserved.

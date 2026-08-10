@@ -2,10 +2,6 @@
 
 Ứng dụng quản lý tiến độ công việc phòng Marketing — Flutter (FE) kết nối backend REST API (Node.js + Express + SQLite) qua IP máy, cổng 3000.
 
-**Thông tin đề tài:**
-- **Tên đề tài:** Marketing CRM
-- **Người phụ trách đề tài:** Nguyễn Trọng Tín (1 người phụ trách duy nhất)
-
 ---
 
 ## 1. Công nghệ sử dụng
@@ -112,12 +108,11 @@ Một Employee có nhiều Task; một Project có nhiều Task. Foreign key dù
 
 ---
 
-## 4. Phạm vi thực hiện — Nguyễn Trọng Tín (1 người phụ trách)
+## 4. Phân chia các mô-đun chức năng
 
-Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** thực hiện toàn bộ cả Backend & Frontend, đảm nhận toàn bộ 4 mô-đun chức năng:
+Dự án được thiết kế thành **4 mô-đun chức năng chính** tương ứng với 4 tab điều hướng giao diện:
 
-### 👤 Mô-đun 1 — Tổng quan & Xác thực (Dashboard + Auth)
-- **Người thực hiện:** Nguyễn Trọng Tín
+### 🧩 Mô-đun 1 — Tổng quan & Xác thực (Dashboard + Auth)
 - **Các file chính:**
   | File | Vai trò |
   |---|---|
@@ -131,14 +126,13 @@ Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** th�
 
 **Chức năng:**
 - Khởi tạo ứng dụng, cấu hình Provider
-- Đăng nhập bằng email (không cần mật khẩu thực)
+- Đăng nhập bằng email nhân viên
 - Bottom navigation với 4 tab
 - Dashboard tổng quan: thống kê số lượng task theo trạng thái, danh sách task gần đây
 
 ---
 
-### 👤 Mô-đun 2 — Quản lý Công việc (Tasks)
-- **Người thực hiện:** Nguyễn Trọng Tín
+### 📋 Mô-đun 2 — Quản lý Công việc (Tasks)
 - **Các file chính:**
   | File | Vai trò |
   |---|---|
@@ -160,8 +154,7 @@ Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** th�
 
 ---
 
-### 👤 Mô-đun 3 — Thống kê (Statistics)
-- **Người thực hiện:** Nguyễn Trọng Tín
+### 📊 Mô-đun 3 — Thống kê (Statistics)
 - **Các file chính:**
   | File | Vai trò |
   |---|---|
@@ -176,8 +169,7 @@ Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** th�
 
 ---
 
-### 👤 Mô-đun 4 — Cá nhân & Tầng dịch vụ (Profile + Services + Models + Utils)
-- **Người thực hiện:** Nguyễn Trọng Tín
+### ⚙️ Mô-đun 4 — Cá nhân & Tầng dịch vụ (Profile + Services + Models + Utils)
 - **Các file chính:**
   | File | Vai trò |
   |---|---|
@@ -329,10 +321,10 @@ lib/
 
 Khi chạy lần đầu, database được tạo và chèn sẵn:
 
-**Nhân viên / Người phụ trách:**
+**Nhân viên (5):**
 | Tên | Email | Chức vụ |
 |---|---|---|
-| Nguyễn Trọng Tín | tin.nguyen@company.com | Trưởng phòng Marketing (Người phụ trách) |
+| Nguyễn Văn An | an.nguyen@company.com | Trưởng phòng Marketing |
 | Trần Thị Bình | binh.tran@company.com | Chuyên viên Content |
 | Lê Hoàng Cường | cuong.le@company.com | Chuyên viên SEO |
 | Phạm Minh Dung | dung.pham@company.com | Designer |
