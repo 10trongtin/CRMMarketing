@@ -2,6 +2,10 @@
 
 Ứng dụng quản lý tiến độ công việc phòng Marketing — kiến trúc **Backend + Frontend** tách riêng.
 
+**Thông tin đề tài:**
+- **Tên đề tài:** Marketing CRM
+- **Người phụ trách đề tài:** Nguyễn Trọng Tín (1 người duy nhất)
+
 ## Cấu trúc repo
 
 ```
@@ -34,7 +38,7 @@ flutter run
 ```
 
 - Địa chỉ backend cấu hình tại `frontend/lib/utils/constants.dart` → `AppConfig.apiHost`.
-- Đăng nhập bằng email nhân viên mẫu (vd: `an.nguyen@company.com`), mật khẩu không kiểm tra.
+- Đăng nhập bằng email nhân viên mẫu (vd: `tin.nguyen@company.com`), mật khẩu không kiểm tra.
 
 ## API endpoints
 

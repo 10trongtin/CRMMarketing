@@ -2,6 +2,10 @@
 
 Ứng dụng quản lý tiến độ công việc phòng Marketing — Flutter (FE) kết nối backend REST API (Node.js + Express + SQLite) qua IP máy, cổng 3000.
 
+**Thông tin đề tài:**
+- **Tên đề tài:** Marketing CRM
+- **Người phụ trách đề tài:** Nguyễn Trọng Tín (1 người phụ trách duy nhất)
+
 ---
 
 ## 1. Công nghệ sử dụng
@@ -108,21 +112,22 @@ Một Employee có nhiều Task; một Project có nhiều Task. Foreign key dù
 
 ---
 
-## 4. Phân chia phạm vi — 4 người
+## 4. Phạm vi thực hiện — Nguyễn Trọng Tín (1 người phụ trách)
 
-Dự án được tổ chức thành **4 mô-đun chức năng** tương ứng với 4 tab điều hướng dưới cùng. Mỗi người phụ trách một mô-đun chính:
+Dự án do **1 người phụ trách duy nhất là Nguyễn Trọng Tín** thực hiện toàn bộ cả Backend & Frontend, đảm nhận toàn bộ 4 mô-đun chức năng:
 
-### 👤 Người 1 — Tổng quan & Xác thực (Dashboard + Auth)
-
-| File | Vai trò |
-|---|---|
-| `lib/main.dart` | Entry point |
-| `lib/app.dart` | MaterialApp, Provider setup, routing |
-| `lib/screens/dashboard/dashboard_screen.dart` | Màn hình Tổng quan |
-| `lib/providers/auth_provider.dart` | Quản lý trạng thái đăng nhập |
-| `lib/services/auth_service.dart` | Xử lý login/logout |
-| `lib/screens/login/login_screen.dart` | Màn hình đăng nhập |
-| `lib/screens/main_shell.dart` | Bottom navigation (4 tab) |
+### 👤 Mô-đun 1 — Tổng quan & Xác thực (Dashboard + Auth)
+- **Người thực hiện:** Nguyễn Trọng Tín
+- **Các file chính:**
+  | File | Vai trò |
+  |---|---|
+  | `lib/main.dart` | Entry point |
+  | `lib/app.dart` | MaterialApp, Provider setup, routing |
+  | `lib/screens/dashboard/dashboard_screen.dart` | Màn hình Tổng quan |
+  | `lib/providers/auth_provider.dart` | Quản lý trạng thái đăng nhập |
+  | `lib/services/auth_service.dart` | Xử lý login/logout |
+  | `lib/screens/login/login_screen.dart` | Màn hình đăng nhập |
+  | `lib/screens/main_shell.dart` | Bottom navigation (4 tab) |
 
 **Chức năng:**
 - Khởi tạo ứng dụng, cấu hình Provider
@@ -132,16 +137,17 @@ Dự án được tổ chức thành **4 mô-đun chức năng** tương ứng v
 
 ---
 
-### 👤 Người 2 — Quản lý Công việc (Tasks)
-
-| File | Vai trò |
-|---|---|
-| `lib/screens/tasks/task_list_screen.dart` | Danh sách công việc (lọc, tìm kiếm) |
-| `lib/screens/tasks/task_detail_screen.dart` | Chi tiết công việc + cập nhật trạng thái |
-| `lib/screens/tasks/task_form_screen.dart` | Thêm / Sửa công việc |
-| `lib/widgets/task_card.dart` | Card hiển thị tóm tắt công việc |
-| `lib/widgets/status_badge.dart` | Badge trạng thái (Cần làm/Đang làm/Kiểm tra/Xong) |
-| `lib/widgets/priority_badge.dart` | Badge mức ưu tiên (Thấp/TB/Cao/Gấp) |
+### 👤 Mô-đun 2 — Quản lý Công việc (Tasks)
+- **Người thực hiện:** Nguyễn Trọng Tín
+- **Các file chính:**
+  | File | Vai trò |
+  |---|---|
+  | `lib/screens/tasks/task_list_screen.dart` | Danh sách công việc (lọc, tìm kiếm) |
+  | `lib/screens/tasks/task_detail_screen.dart` | Chi tiết công việc + cập nhật trạng thái |
+  | `lib/screens/tasks/task_form_screen.dart` | Thêm / Sửa công việc |
+  | `lib/widgets/task_card.dart` | Card hiển thị tóm tắt công việc |
+  | `lib/widgets/status_badge.dart` | Badge trạng thái (Cần làm/Đang làm/Kiểm tra/Xong) |
+  | `lib/widgets/priority_badge.dart` | Badge mức ưu tiên (Thấp/TB/Cao/Gấp) |
 
 **Chức năng:**
 - Xem danh sách công việc, lọc theo trạng thái và người thực hiện
@@ -154,12 +160,13 @@ Dự án được tổ chức thành **4 mô-đun chức năng** tương ứng v
 
 ---
 
-### 👤 Người 3 — Thống kê (Statistics)
-
-| File | Vai trò |
-|---|---|
-| `lib/screens/statistics/statistics_screen.dart` | Màn hình Thống kê |
-| `lib/widgets/stats_card.dart` | Card hiển thị chỉ số |
+### 👤 Mô-đun 3 — Thống kê (Statistics)
+- **Người thực hiện:** Nguyễn Trọng Tín
+- **Các file chính:**
+  | File | Vai trò |
+  |---|---|
+  | `lib/screens/statistics/statistics_screen.dart` | Màn hình Thống kê |
+  | `lib/widgets/stats_card.dart` | Card hiển thị chỉ số |
 
 **Chức năng:**
 - Tỷ lệ hoàn thành tổng thể (số phần trăm + thanh progress)
@@ -169,20 +176,21 @@ Dự án được tổ chức thành **4 mô-đun chức năng** tương ứng v
 
 ---
 
-### 👤 Người 4 — Cá nhân & Tầng dịch vụ (Profile + Services + Models + Utils)
-
-| File | Vai trò |
-|---|---|
-| `lib/screens/profile/profile_screen.dart` | Màn hình Cá nhân |
-| `lib/services/api_service.dart` | Toàn bộ gọi REST API (auth, employees, projects, tasks, stats) |
-| `lib/models/employee.dart` | Model Employee |
-| `lib/models/project.dart` | Model Project |
-| `lib/models/task.dart` | Model MarketingTask + logic nghiệp vụ |
-| `lib/providers/task_provider.dart` | State management cho Tasks |
-| `lib/utils/constants.dart` | Màu sắc, hằng số, cấu hình |
-| `lib/utils/theme.dart` | Material 3 theme |
-| `lib/utils/date_utils.dart` | Xử lý ngày tháng (format, so sánh, relative time) |
-| `lib/widgets/empty_state.dart` | Widget placeholder khi danh sách rỗng |
+### 👤 Mô-đun 4 — Cá nhân & Tầng dịch vụ (Profile + Services + Models + Utils)
+- **Người thực hiện:** Nguyễn Trọng Tín
+- **Các file chính:**
+  | File | Vai trò |
+  |---|---|
+  | `lib/screens/profile/profile_screen.dart` | Màn hình Cá nhân |
+  | `lib/services/api_service.dart` | Toàn bộ gọi REST API (auth, employees, projects, tasks, stats) |
+  | `lib/models/employee.dart` | Model Employee |
+  | `lib/models/project.dart` | Model Project |
+  | `lib/models/task.dart` | Model MarketingTask + logic nghiệp vụ |
+  | `lib/providers/task_provider.dart` | State management cho Tasks |
+  | `lib/utils/constants.dart` | Màu sắc, hằng số, cấu hình |
+  | `lib/utils/theme.dart` | Material 3 theme |
+  | `lib/utils/date_utils.dart` | Xử lý ngày tháng (format, so sánh, relative time) |
+  | `lib/widgets/empty_state.dart` | Widget placeholder khi danh sách rỗng |
 
 **Chức năng:**
 - Xem thông tin cá nhân (tên, email, chức vụ)
@@ -321,10 +329,10 @@ lib/
 
 Khi chạy lần đầu, database được tạo và chèn sẵn:
 
-**Nhân viên (5):**
+**Nhân viên / Người phụ trách:**
 | Tên | Email | Chức vụ |
 |---|---|---|
-| Nguyễn Văn An | an.nguyen@company.com | Trưởng phòng Marketing |
+| Nguyễn Trọng Tín | tin.nguyen@company.com | Trưởng phòng Marketing (Người phụ trách) |
 | Trần Thị Bình | binh.tran@company.com | Chuyên viên Content |
 | Lê Hoàng Cường | cuong.le@company.com | Chuyên viên SEO |
 | Phạm Minh Dung | dung.pham@company.com | Designer |

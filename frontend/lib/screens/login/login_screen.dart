@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Mẹo: Dùng email nhân viên để đăng nhập (vd: an.nguyen@company.com)',
+                    'Mẹo: Dùng email nhân viên để đăng nhập (vd: tin.nguyen@company.com)',
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 12, color: Colors.grey.shade500),
                   ),

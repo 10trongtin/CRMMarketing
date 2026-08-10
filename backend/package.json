@@ -2,6 +2,7 @@
   "name": "crm-marketing-backend",
   "version": "1.0.0",
   "description": "Backend REST API cho Marketing CRM",
+  "author": "Nguyễn Trọng Tín",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
